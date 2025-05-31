@@ -11,6 +11,11 @@ import ReportViewPage from './pages/reports/ReportViewPage';
 import ReportCreatePage from './pages/reports/ReportCreatePage';
 import ReportEditPage from './pages/reports/ReportEditPage';
 
+// Import Notification Pages
+import NotificationListPage from './pages/notifications/NotificationListPage';
+import NotificationDetailPage from './pages/notifications/NotificationDetailPage';
+import NotificationCreatePage from './pages/notifications/NotificationCreatePage';
+
 /**
  * Componente principal da aplicação que gerencia as rotas
  * Main application component that manages routes
@@ -54,6 +59,23 @@ function App() {
       <Route path="/reports/edit/:id" element={
         <ProtectedRoute>
           <ReportEditPage />
+        </ProtectedRoute>
+      } />
+
+      {/* Notification Routes */}
+      <Route path="/notifications" element={
+        <ProtectedRoute>
+          <NotificationListPage />
+        </ProtectedRoute>
+      } />
+      <Route path="/notifications/create" element={
+        <ProtectedRoute>
+          <NotificationCreatePage />
+        </ProtectedRoute>
+      } />
+      <Route path="/notifications/:id" element={
+        <ProtectedRoute>
+          <NotificationDetailPage />
         </ProtectedRoute>
       } />
       
