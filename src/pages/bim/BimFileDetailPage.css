@@ -1,0 +1,14 @@
+.bim-file-detail-page {
+  padding: 0 16px;
+}
+
+.page-header {
+  margin-bottom: 24px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .bim-file-detail-page {
+    padding: 0 8px;
+  }
+}

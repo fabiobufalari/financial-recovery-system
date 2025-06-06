@@ -1,0 +1,69 @@
+.bim-processing-dashboard {
+  margin-bottom: 24px;
+}
+
+.dashboard-alert {
+  margin-bottom: 16px;
+}
+
+.completion-progress {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  padding: 16px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+}
+
+.completion-text {
+  margin-left: 24px;
+}
+
+.stats-row {
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.recent-errors {
+  margin-top: 24px;
+}
+
+.error-alert {
+  margin-bottom: 8px;
+}
+
+.dashboard-footer {
+  margin-top: 24px;
+  text-align: right;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 16px;
+}
+
+.bim-dashboard-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+}
+
+.bim-dashboard-loading .ant-spin {
+  margin-bottom: 16px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .completion-progress {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .completion-text {
+    margin-left: 0;
+    margin-top: 16px;
+  }
+}

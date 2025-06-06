@@ -1,0 +1,14 @@
+.bim-management-page {
+  padding: 0 16px;
+}
+
+.page-header {
+  margin-bottom: 24px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .bim-management-page {
+    padding: 0 8px;
+  }
+}
