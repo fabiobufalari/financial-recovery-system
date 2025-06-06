@@ -5,7 +5,22 @@ import {
 } from 'recharts';
 import { FiArrowUp, FiArrowDown } from 'react-icons/fi';
 
+/**
+ * Financial Analysis Component
+ * 
+ * EN: This component displays financial data visualizations including income/expense trends,
+ * project budgets, and expense categories. It provides an interactive interface with
+ * multiple tabs for different financial views to minimize screen changes.
+ * 
+ * PT: Este componente exibe visualizações de dados financeiros, incluindo tendências de
+ * receita/despesa, orçamentos de projetos e categorias de despesas. Fornece uma interface
+ * interativa com várias abas para diferentes visualizações financeiras para minimizar
+ * mudanças de tela.
+ */
+
 // Sample data - in a real application, this would come from an API
+// EN: Monthly financial performance data
+// PT: Dados de desempenho financeiro mensal
 const monthlyData = [
   { month: 'Jan', income: 125000, expenses: 95000, profit: 30000 },
   { month: 'Feb', income: 132000, expenses: 98500, profit: 33500 },
@@ -15,6 +30,8 @@ const monthlyData = [
   { month: 'Jun', income: 138000, expenses: 100500, profit: 37500 }
 ];
 
+// EN: Expense breakdown by category
+// PT: Detalhamento de despesas por categoria
 const expenseCategories = [
   { name: 'Labor', value: 450000, color: '#0088FE' },
   { name: 'Materials', value: 320000, color: '#00C49F' },
@@ -23,6 +40,8 @@ const expenseCategories = [
   { name: 'Subcontractors', value: 80000, color: '#8884d8' }
 ];
 
+// EN: Project financial and completion status
+// PT: Status financeiro e de conclusão do projeto
 const projectData = [
   { name: 'Downtown', budget: 500000, expenses: 325000, completion: 65 },
   { name: 'Westside', budget: 750000, expenses: 375000, completion: 50 },
@@ -32,12 +51,22 @@ const projectData = [
 ];
 
 const FinancialAnalysis: React.FC = () => {
+  /**
+   * EN: State management for active tab and financial calculations
+   * PT: Gerenciamento de estado para aba ativa e cálculos financeiros
+   */
   const [activeTab, setActiveTab] = useState<'overview' | 'projects' | 'expenses'>('overview');
   const [totalIncome, setTotalIncome] = useState(0);
   const [totalExpenses, setTotalExpenses] = useState(0);
   const [totalProfit, setTotalProfit] = useState(0);
   const [profitChange, setProfitChange] = useState(0);
 
+  /**
+   * Calculate financial metrics on component mount
+   * 
+   * EN: Calculates total income, expenses, profit, and month-over-month change
+   * PT: Calcula receita total, despesas, lucro e variação mês a mês
+   */
   useEffect(() => {
     // Calculate totals and changes
     const income = monthlyData.reduce((sum, month) => sum + month.income, 0);
@@ -59,6 +88,11 @@ const FinancialAnalysis: React.FC = () => {
 
   return (
     <div className="bg-white p-4 shadow rounded">
+      {/* 
+        Header with tab navigation
+        EN: Provides easy switching between different financial views
+        PT: Fornece alternância fácil entre diferentes visualizações financeiras
+      */}
       <div className="flex justify-between items-center mb-4">
         <h3 className="text-lg font-semibold">Financial Analysis</h3>
         <div className="flex space-x-2">
@@ -83,7 +117,11 @@ const FinancialAnalysis: React.FC = () => {
         </div>
       </div>
 
-      {/* Summary Cards */}
+      {/* 
+        Summary Cards
+        EN: Quick overview of key financial metrics
+        PT: Visão geral rápida das principais métricas financeiras
+      */}
       <div className="grid grid-cols-3 gap-4 mb-4">
         <div className="bg-blue-50 p-3 rounded">
           <p className="text-sm text-gray-500">Total Income</p>
@@ -105,7 +143,11 @@ const FinancialAnalysis: React.FC = () => {
         </div>
       </div>
 
-      {/* Charts based on active tab */}
+      {/* 
+        Charts based on active tab
+        EN: Dynamic chart display based on selected tab
+        PT: Exibição dinâmica de gráficos com base na aba selecionada
+      */}
       <div className="h-64">
         {activeTab === 'overview' && (
           <ResponsiveContainer width="100%" height="100%">
@@ -166,6 +208,11 @@ const FinancialAnalysis: React.FC = () => {
         )}
       </div>
 
+      {/* 
+        Link to detailed reports
+        EN: Provides quick access to more detailed financial information
+        PT: Fornece acesso rápido a informações financeiras mais detalhadas
+      */}
       <div className="mt-4 text-sm text-gray-500 text-right">
         <a href="/reports" className="text-blue-500 hover:underline">View detailed reports →</a>
       </div>

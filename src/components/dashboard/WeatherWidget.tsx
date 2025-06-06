@@ -1,9 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { FiSun, FiCloud, FiCloudRain, FiCloudSnow, FiWind } from 'react-icons/fi';
 
+/**
+ * Weather Widget Component
+ * 
+ * EN: This component displays weather information for construction project sites.
+ * It allows users to select different project locations and view current weather conditions,
+ * helping project managers make informed decisions about scheduling and resource allocation.
+ * 
+ * PT: Este componente exibe informações meteorológicas para locais de projetos de construção.
+ * Permite que os usuários selecionem diferentes locais de projeto e visualizem as condições
+ * climáticas atuais, ajudando os gerentes de projeto a tomar decisões informadas sobre
+ * agendamento e alocação de recursos.
+ */
+
 // Sample data - in a real application, this would come from an API
+// EN: List of project locations for weather monitoring
+// PT: Lista de locais de projeto para monitoramento climático
 const locations = ['Downtown', 'Westside', 'Northside', 'Eastside', 'Southside'];
 
+/**
+ * Weather Data Interface
+ * 
+ * EN: Defines the structure of weather data for a specific location
+ * PT: Define a estrutura de dados meteorológicos para um local específico
+ */
 interface WeatherData {
   location: string;
   date: string;
@@ -14,6 +35,8 @@ interface WeatherData {
   windSpeed: number;
 }
 
+// EN: Sample weather data for demonstration purposes
+// PT: Dados meteorológicos de exemplo para fins de demonstração
 const sampleWeatherData: Record<string, WeatherData> = {
   'Downtown': {
     location: 'Downtown',
@@ -63,10 +86,20 @@ const sampleWeatherData: Record<string, WeatherData> = {
 };
 
 const WeatherWidget: React.FC = () => {
+  /**
+   * EN: State management for location selection, weather data, and loading status
+   * PT: Gerenciamento de estado para seleção de local, dados meteorológicos e status de carregamento
+   */
   const [selectedLocation, setSelectedLocation] = useState('Downtown');
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
   const [loading, setLoading] = useState(false);
 
+  /**
+   * Fetch weather data when location changes
+   * 
+   * EN: Simulates an API call to fetch weather data for the selected location
+   * PT: Simula uma chamada de API para buscar dados meteorológicos para o local selecionado
+   */
   useEffect(() => {
     // Simulate API call
     setLoading(true);
@@ -76,6 +109,15 @@ const WeatherWidget: React.FC = () => {
     }, 500);
   }, [selectedLocation]);
 
+  /**
+   * Get appropriate weather icon based on conditions
+   * 
+   * EN: Returns the appropriate icon component based on weather conditions
+   * PT: Retorna o componente de ícone apropriado com base nas condições climáticas
+   * 
+   * @param conditions - The weather conditions text
+   * @returns React icon component representing the weather conditions
+   */
   const getWeatherIcon = (conditions: string) => {
     switch (conditions.toLowerCase()) {
       case 'sunny':
@@ -95,6 +137,11 @@ const WeatherWidget: React.FC = () => {
 
   return (
     <div className="bg-white p-4 shadow rounded">
+      {/* 
+        Header with location selector
+        EN: Allows users to quickly switch between different project locations
+        PT: Permite que os usuários alternem rapidamente entre diferentes locais de projeto
+      */}
       <div className="flex justify-between items-center mb-4">
         <h3 className="text-lg font-semibold">Project Site Weather</h3>
         <select 
@@ -108,12 +155,22 @@ const WeatherWidget: React.FC = () => {
         </select>
       </div>
 
+      {/* 
+        Weather content area
+        EN: Displays loading indicator, weather data, or error message as appropriate
+        PT: Exibe indicador de carregamento, dados meteorológicos ou mensagem de erro conforme apropriado
+      */}
       {loading ? (
         <div className="h-32 flex items-center justify-center">
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
         </div>
       ) : weatherData ? (
         <div className="flex flex-col">
+          {/* 
+            Current conditions display
+            EN: Shows temperature, conditions, and wind information
+            PT: Mostra temperatura, condições e informações sobre vento
+          */}
           <div className="flex items-center justify-between">
             <div className="flex items-center">
               {getWeatherIcon(weatherData.conditions)}
@@ -131,6 +188,11 @@ const WeatherWidget: React.FC = () => {
             </div>
           </div>
           
+          {/* 
+            Precipitation chance indicator
+            EN: Visual representation of precipitation probability
+            PT: Representação visual da probabilidade de precipitação
+          */}
           <div className="mt-4 pt-3 border-t">
             <div className="flex justify-between text-sm">
               <p className="text-gray-500">Precipitation</p>
@@ -144,6 +206,11 @@ const WeatherWidget: React.FC = () => {
             </div>
           </div>
           
+          {/* 
+            Last updated timestamp
+            EN: Shows when the weather data was last refreshed
+            PT: Mostra quando os dados meteorológicos foram atualizados pela última vez
+          */}
           <div className="mt-3 text-xs text-gray-500">
             <p>Last updated: Today at {new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</p>
           </div>
