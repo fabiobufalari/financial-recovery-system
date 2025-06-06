@@ -1,0 +1,56 @@
+.project-list-container {
+  margin-bottom: 2rem;
+}
+
+.project-table {
+  font-size: 0.95rem;
+}
+
+.project-name-link {
+  font-weight: 600;
+  color: #0056b3;
+  text-decoration: none;
+}
+
+.project-name-link:hover {
+  text-decoration: underline;
+}
+
+.project-description-preview {
+  font-size: 0.85rem;
+  color: #6c757d;
+  margin-top: 0.25rem;
+}
+
+.sortable-header {
+  cursor: pointer;
+  user-select: none;
+}
+
+.sortable-header:hover {
+  background-color: #f8f9fa;
+}
+
+.days-remaining {
+  font-size: 0.8rem;
+  color: #6c757d;
+  margin-top: 0.25rem;
+}
+
+.action-buttons {
+  white-space: nowrap;
+}
+
+/* EN: Responsive adjustments for mobile devices 
+   PT: Ajustes responsivos para dispositivos móveis */
+@media (max-width: 768px) {
+  .action-buttons .btn {
+    padding: 0.2rem 0.4rem;
+    font-size: 0.7rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .project-table th, .project-table td {
+    padding: 0.5rem;
+  }
+}

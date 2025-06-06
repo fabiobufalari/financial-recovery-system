@@ -1,0 +1,68 @@
+.project-detail-container {
+  margin-bottom: 2rem;
+}
+
+.project-description {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 0.25rem;
+}
+
+.details-table {
+  font-size: 0.95rem;
+}
+
+.details-table th {
+  width: 40%;
+  font-weight: 600;
+}
+
+.days-remaining {
+  font-size: 0.85rem;
+  color: #6c757d;
+}
+
+.progress-section {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 0.25rem;
+}
+
+.progress-stats {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.stat-item {
+  margin-right: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.stat-label {
+  font-weight: 600;
+  margin-right: 0.25rem;
+}
+
+.tasks-table {
+  font-size: 0.9rem;
+}
+
+/* EN: Responsive adjustments for mobile devices
+   PT: Ajustes responsivos para dispositivos móveis */
+@media (max-width: 768px) {
+  .project-detail-container .btn {
+    font-size: 0.85rem;
+    padding: 0.375rem 0.5rem;
+  }
+  
+  .project-detail-container .d-flex {
+    flex-direction: column;
+    align-items: flex-start !important;
+  }
+  
+  .project-detail-container .d-flex .btn {
+    margin-top: 0.5rem;
+    width: 100%;
+  }
+}

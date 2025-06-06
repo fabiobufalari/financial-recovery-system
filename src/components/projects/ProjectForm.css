@@ -1,0 +1,26 @@
+.project-form-container {
+  margin-bottom: 2rem;
+}
+
+/* EN: Custom styling for form elements
+   PT: Estilização personalizada para elementos do formulário */
+.project-form-container .form-label {
+  font-weight: 500;
+}
+
+.project-form-container textarea {
+  min-height: 100px;
+}
+
+/* EN: Responsive adjustments for mobile devices
+   PT: Ajustes responsivos para dispositivos móveis */
+@media (max-width: 768px) {
+  .project-form-container .btn {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+  
+  .project-form-container .d-flex {
+    flex-direction: column;
+  }
+}
